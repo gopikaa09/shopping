@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+    <style>
+        body{
+            display: flex;
+            background-color: gainsboro;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 90vh;
+        }
+        .container{
+            width: 700px;
+            background-color: rgb(170, 140, 228);
+            border-radius: 15px;
+            display: flex;
+        }
+        img{
+            margin: 15px;
+            width: 300px !important;
+            height: 300px ;
+            border-radius: 15px;
+        }
+        .rightcontainer{
+            padding: 25px;
+        }
+        #price{
+            text-align: right;
+            background-color: rgb(13, 13, 74);
+            display: inline-block;
+            padding: 15px;
+            color: white;
+            margin: 15px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="leftcontainer">
+            <img src="" alt="" id="figure">
+        </div>
+        <div class="rightcontainer">
+            <h2 id="title"></h2>
+            <p id="description"></p>
+
+            <p id="price"></p>
+        </div>
+    </div>
+    <script>
+        var gettingstorage=localStorage.getItem("productsdata")
+        let showingproducts=JSON.parse(gettingstorage);
+
+        let figure=document.getElementById("figure");
+        figure.setAttribute("src",showingproducts["image"]);
+        figure.style.width="150px";
+
+        let title=document.getElementById("title");
+        title.innerText=showingproducts["title"];
+
+        let description=document.getElementById("description");
+        description.innerText=showingproducts["description"];
+
+        let price=document.getElementById("price");
+        price.innerText=showingproducts["price"]+" /-";
+    </script>
+</body>
+</html>
+
+
+<!-- rating
+price
+ -->

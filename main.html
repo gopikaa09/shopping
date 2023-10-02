@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Shopping</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: gainsboro;
+        }
+        nav{
+            background-color: rgb(98, 76, 142);
+            padding: 30px;
+            position: fixed;
+            width: 100%;
+            margin-bottom: 100px;
+        }
+        header{
+            display: flex;
+            flex-direction: column;
+            /* padding: 15px; */
+            align-items: center;
+            align-items: center;
+            width: 150px;
+            position: fixed;
+            bottom: 30px;
+            top:85px;
+        }
+        button{
+            font-size: 20px;
+            padding: 55px;
+            width: 200px;
+            border: none;
+            background-color: rgb(170, 140, 228);
+        }
+        button:hover{
+            cursor: pointer;
+            background-color: rgb(199, 217, 172);
+            /* opacity: 0.8; */
+        }
+        
+        marquee{
+            background-color: rgb(136, 126, 156);
+            padding: 10px;
+            color: gold;
+            position: fixed;
+            top: 85px;
+        }
+        .container{
+            margin-left: 200px;
+            margin-top: 150px;
+        }
+        .logout {
+            padding: 7px !important;
+            position: relative;
+            bottom: 30px;
+            left: 80%;
+            width: 100px;
+            border-radius: 10px;
+            background-color: rgb(183, 184, 164);
+
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <h1>Online Shopping</h1>
+        <button class="logout" onclick="logout()">Logout</button>
+    </nav>
+    
+    <marquee>
+        <i style="font-size: 20px; color: gold;" class="fa fa-bolt"></i> 
+        <i style="font-size: 20px; color: gold;" class="fa fa-bolt"></i>
+        Billion days
+        <i style="font-size: 20px; color: gold;" class="fa fa-bolt"></i>
+        <i style="font-size: 20px; color: gold;" class="fa fa-bolt"></i>
+    </marquee>
+    <header>
+        <button onclick="mens()"><i class="fa fa-male"></i>Mens</button>
+        <button onclick="womens()"><i class="fa fa-female"></i>Womens</button>
+        <button onclick="jewellery()"><i class="fa fa-diamond"></i>Jewellery</button>
+        <button onclick="electronics()"><i class="fa fa-microchip"></i>Electronics</button>
+    </header>
+    <table id="table"></table>
+    <div class="container">
+
+    </div>
+    <script src="./index.js">
+        
+    </script>
+
+</body>
+</html>

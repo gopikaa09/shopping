@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Shopping</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: gainsboro;
+        }
+        nav{
+            display: flex; 
+            padding: 15px;
+            background-color: rgb(170, 140, 228);
+        }
+        .navbar{
+            margin-left: 70%;
+        }
+        button{
+            margin:5px 15px;
+            padding: 15px;
+            border: none;
+            background-color: rgb(19, 19, 100);
+            color: white;
+            border-radius: 15px;
+        }
+        img{
+            height: 85vh;
+            width: 100%;
+        }
+        button:hover{
+            background-color: rgb(46, 101, 54);
+            color: black;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <h1>Online Shopping</h1>
+        <div class="navbar">
+            <button onclick="register()">Register</button>
+            <button onclick="login()">Login</button>
+        </div>
+    </nav>
+    <div class="image">
+        <img src="./media/images/first.jpg">
+    </div>
+    <script>
+        function register(){
+            window.open("./Register.html","_self")
+        }
+        function login(){
+            window.open("./Login.html","_self")
+        }
+    </script>
+</body>
+</html>

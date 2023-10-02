@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration</title>
+    <style>
+      body {
+        background-color: gainsboro;
+        display: flex;
+        width: 100%;
+        height: 90vh;
+        justify-content: center;
+        align-items: center;
+      }
+      .container {
+        background-color: rgb(11, 146, 101);
+        width: 700px;
+        display: flex;
+      }
+      .leftcontainer img {
+        width: 350px;
+        height: 500px;
+      }
+      .rightcontainer {
+        margin: 20px;
+      }
+      .rightcontainer input {
+        margin: 5px;
+        padding: 5px;
+        border-radius: 5px;
+        border: none;
+        width: 250px;
+        outline: none;
+      }
+      .button {
+        width: 100px !important;
+        padding: 15px !important;
+        background-color: grey;
+        cursor: pointer;
+      }
+      span {
+        display: none;
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="leftcontainer">
+        <img src="./media/images/register1.jpg" alt="" />
+      </div>
+      <div class="rightcontainer">
+        <h1>Registration Form</h1>
+        <form action="">
+          <label for="Username">Username:</label><br />
+          <input type="text" name="Username" id="username" required /><br />
+          <span>*Username should be more than 10 characters</span>
+          <label for="email">Email:</label><br />
+          <input type="email" name="email" id="email" required /><br />
+          <label for="phonenumber">Mobile:</label><br />
+          <input
+            type="tel"
+            name="phonenumber"
+            id="phonenumber"
+            required
+          /><br />
+          <span>*Only Indian number is accepted</span>
+          <label for="pass">Password:</label><br />
+          <input type="password" name="pass" id="pass" required /><br />
+          <span>*The password should be consist of more than 8 </span><br />
+          <label for="cpass">Confirm Password:</label><br />
+          <input type="password" name="cpass" id="cpass" required /><br />
+          <span>*The password is mismatch</span><br />
+          <input type="submit" value="Submit" class="button" />
+          <input type="reset" value="Reset" class="button" />
+        </form>
+      </div>
+    </div>
+    <script>
+      let forms = document.forms[0];
+      console.log(forms);
+      forms.addEventListener("submit", (event) => {
+        event.preventDefault();
+        let username = event.target[0].value;
+        let email = event.target[1].value;
+        let phonenumber = event.target[2].value;
+        let pass = event.target[3].value;
+        let cpass = event.target[4].value;
+        let usersdata = JSON.parse(localStorage.getItem("usersdata")) || [];
+        let valid = true;
+
+        if (username.length <= 10) {
+          document.getElementsByTagName("span")[0].style.display = "block";
+          document.getElementById("username").style.border = "2px solid red";
+          valid = false;
+        } else {
+          document.getElementsByTagName("span")[0].style.display = "none";
+        }
+
+        if (
+          !(
+            phonenumber[0] == "9" ||
+            phonenumber[0] == "8" ||
+            phonenumber[0] == "7" ||
+            phonenumber[0] == "6"
+          ) ||
+          phonenumber.length !== 10
+        ) {
+          document.getElementsByTagName("span")[1].style.display = "block";
+          document.getElementById("phonenumber").style.border = "2px solid red";
+          valid = false;
+        } else {
+          document.getElementsByTagName("span")[1].style.display = "none";
+        }
+
+        if (pass.length < 8) {
+          document.getElementsByTagName("span")[2].style.display = "block";
+          valid = false;
+        } else {
+          document.getElementsByTagName("span")[2].style.display = "none";
+        }
+
+        if (pass != cpass) {
+          document.getElementsByTagName("span")[3].style.display = "block";
+          document.getElementById("cpass").style.border = "2px solid red";
+          document.getElementById("pass").style.border = "2px solid red";
+          valid = false;
+        } else {
+          document.getElementsByTagName("span")[3].style.display = "none";
+        }
+
+        if (valid) {
+          if (
+            usersdata.some((v) => {
+              return v.email == email;
+            })
+          ) {
+            alert("User already exists. Please login.");
+            window.open("./Login.html", "_self");
+          } else {
+            let objdata = {
+              username: username,
+              email: email,
+              phonenumber: phonenumber,
+              password: pass,
+              confirmpassword: cpass,
+            };
+            usersdata.push(objdata);
+            localStorage.setItem("usersdata", JSON.stringify(usersdata));
+            window.open("./successfull.html", "_self");
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

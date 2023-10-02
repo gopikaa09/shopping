@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body{
+            background-color: gainsboro;
+            display: flex;
+            justify-content: center;
+            height: 90vh;
+            align-items: center;
+        }
+        .container{
+            /* background-color: green; */
+            padding: 15px;
+        }
+        .bottom{
+            background-color: green;
+            padding: 35px;
+            text-align: center;
+        }
+        .top{
+            padding: 15px;
+            background-color: white;
+        }
+        button{
+            padding: 10px;
+            width: 100px;
+            background-color: white;
+            border: none;
+            border-radius: 20px;
+        }
+        button:hover{
+            cursor: pointer;
+        }
+        img{
+            width: 250px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top">
+            <center><img src="./media/videos/one.gif" alt=""></center>
+            <!-- <i class="fa fa-check-circle-o" style="font-size: 35px; margin: 25px 150px;"></i> -->
+            <h1 style="text-align: center;">Success</h1>
+        </div>
+        <div class="bottom">
+            <h3>Congratulations your account<br>has been successfully created</h3>
+            <h3>Please Login to Enjoy the Shooping</h3>
+            <button onclick="gotologin()">Login</button>
+        </div>
+    </div>
+    <script>
+        let gotologin=()=>{
+            window.open("./Login.html","_self")
+        }
+    </script>
+</body>
+</html>
