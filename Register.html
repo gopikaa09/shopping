@@ -88,6 +88,7 @@
         let pass = event.target[3].value;
         let cpass = event.target[4].value;
         let usersdata = JSON.parse(localStorage.getItem("usersdata")) || [];
+
         let valid = true;
 
         if (username.length <= 10) {

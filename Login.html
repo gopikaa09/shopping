@@ -51,7 +51,7 @@
       <div class="leftcontainer">
         <h1>Login</h1>
         <form action="">
-          <label for="username">Username</label><br />
+          <label for="username">Email</label><br />
           <input type="text" name="username" id="username" /><br />
           <label for="pass">Password</label><br />
           <input type="password" name="pass" id="pass" /><br />
@@ -66,51 +66,15 @@
 
     <script>
       let forms = document.forms[0];
-      // forms.addEventListener("submit", (event) => {
-      //   event.preventDefault();
-      //   username = event.target[0].value;
-      //   password = event.target[1].value;
-
-      //   let getdata = JSON.parse(localStorage.getItem("usersdata")) || [];
-      //   let found = false;
-
-      //   for (i = 0; i < getdata.length; i++) {
-      //     if (
-      //       username === getdata[i].username &&
-      //       password === getdata[i].password
-      //     ) {
-      //       found = true;
-      //       break;
-      //     }
-      //   }
-
-      //   if (found) {
-      //     document.getElementsByTagName("span")[0].style.display = "none";
-      //     document.getElementsByTagName("input")[0].style.border =
-      //       "2px solid black";
-      //     document.getElementsByTagName("input")[1].style.border =
-      //       "2px solid black";
-      //     alert("successfully login");
-      //     window.open("./index1.html", "_self");
-      //   } else {
-      //     document.getElementsByTagName("span")[0].style.display = "block";
-      //     document.getElementsByTagName("input")[0].style.border =
-      //       "2px solid red";
-      //     document.getElementsByTagName("input")[1].style.border =
-      //       "2px solid red";
-      //   }
-      // });
-
       forms.addEventListener("submit", (event) => {
         event.preventDefault();
-        username = event.target[0].value;
+        email = event.target[0].value;
         password = event.target[1].value;
 
       let getdata = JSON.parse(localStorage.getItem("usersdata")) || [];
-        let found=false;
         for (i = 0; i < getdata.length; i++) {
           if (
-            username === getdata[i].username &&
+            email === getdata[i].email &&
             password === getdata[i].password
         ){
           document.getElementsByTagName("span")[0].style.display="none";
@@ -119,8 +83,8 @@
           alert("successfully login")
           window.open("./index1.html","_self")
           break;
-          
-        }else{
+        }
+        else{
           document.getElementsByTagName("span")[0].style.display="block";
           document.getElementsByTagName("input")[0].style.border="2px solid red";
           document.getElementsByTagName("input")[1].style.border="2px solid red";
